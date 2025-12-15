@@ -12,12 +12,14 @@ def index_page(request):
     # )
     # new_worker.save()
 
-    worker_to_update = Worker.objects.get(id=2)
-    worker_to_update.first_name = 'Привет'
-    worker_to_update.save() 
+    # worker_to_update = Worker.objects.get(id=2)
+    # worker_to_update.first_name = 'Привет'
+    # worker_to_update.save() 
  
 
     all_workers = Worker.objects.all()
+    dictionary = {'data': all_workers}
+    return render(request, 'index.html', context=dictionary)
     # print(all_workers)
 
  
@@ -37,3 +39,7 @@ def index_page(request):
     # print(mid_salary_workers)
 
     return render(request, 'index.html')
+
+
+def about_page(request):
+    return render(request, 'about.html')
