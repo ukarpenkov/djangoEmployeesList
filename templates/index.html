@@ -6,7 +6,14 @@
     <title>Document</title>
   </head>
   <body>
-    <h1>TEST</h1>
-    {{data}} {{data2}}
+    <h1>Employees list</h1>
+    {% for item in data %}
+    <h3>Сотрудник {{forloop.counter}}</h3>
+    <p>Фамилия: {{ item.last_name }}</p>
+    Зарплата: {% if item.salary > 20000 %}
+    <b style="color: blue"> {{item.salary}} </b>
+    {% else %}
+    <b style="color: red"> {{item.salary}} </b>
+    {%endif %} {%endfor %}
   </body>
 </html>
