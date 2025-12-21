@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from .models import Worker
+from .models import Worker, Department
+from django.http import HttpResponse
 
 def index_page(request):
 
@@ -41,5 +42,7 @@ def index_page(request):
     return render(request, 'index.html')
 
 
-def about_page(request):
-    return render(request, 'about.html')
+def departments_page(request):
+    all_departments = Department.objects.all()
+    print(all_departments)
+    return HttpResponse("Departments Page")
