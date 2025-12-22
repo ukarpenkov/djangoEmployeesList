@@ -21,5 +21,5 @@ from myApp1.views import index_page, departments_page
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index_page),
-    path('department/', departments_page),
+    path('departments/', departments_page),
 ]

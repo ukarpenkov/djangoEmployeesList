@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    {% for dept in departments %}
+    <h2>Отдел: {{ dept.name }}</h2>
+    <h4>Сотрудники отдела:</h4>
+    {% for emp in dept.workers.all %}
+    <p>Фамилия: {{ emp.last_name }} - Зарплата: {{ emp.salary }}</p>
+    {% empty %}
+    <p>В этом отделе нет сотрудников.</p>
+    {% endfor %} {% endfor %}
+  </body>
+</html>

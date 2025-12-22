@@ -14,6 +14,8 @@
     <b style="color: blue"> {{item.salary}} </b>
     {% else %}
     <b style="color: red"> {{item.salary}} </b>
-    {%endif %} {%endfor %}
+    {%endif %} Отдел: {{item.department.name}}
+    <hr />
+    {%endfor %}
   </body>
 </html>

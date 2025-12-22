@@ -44,5 +44,21 @@ def index_page(request):
 
 def departments_page(request):
     all_departments = Department.objects.all()
-    print(all_departments)
-    return HttpResponse("Departments Page")
+    # print(all_departments)
+    #Способы фильтрации:
+    departments_eat = Worker.objects.filter(department__name='Eat')
+    print(departments_eat)
+
+    
+    #GET method:
+    departments_it = Department.objects.get(name='IT')
+    worker_departments_it = Worker.objects.filter(department=departments_it)
+    print(worker_departments_it)
+
+    # Способы получения связанных данных:
+    money_department = Department.objects.get(name='Money')
+    worker_money_department = money_department.workers.all()
+    print(worker_money_department)
+
+    return render(request, 'departments.html', context={'departments': all_departments})
+
